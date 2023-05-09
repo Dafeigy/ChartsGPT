@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+
+</head>
+<body>
+    <div id="7d3249bfa9fc4d7eacb632afc14be3da" class="chart-container" style="width:800px; height:800px;"></div>
+    <script>
+        var chart_7d3249bfa9fc4d7eacb632afc14be3da = echarts.init(
+            document.getElementById('7d3249bfa9fc4d7eacb632afc14be3da'), 'white', {renderer: 'canvas'});
+        var option_7d3249bfa9fc4d7eacb632afc14be3da = {
+    "backgroundColor": "white",
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "color": [
+        "#c23531",
+        "#2f4554",
+        "#61a0a8",
+        "#d48265",
+        "#749f83",
+        "#ca8622",
+        "#bda29a",
+        "#6e7074",
+        "#546570",
+        "#c4ccd3",
+        "#f05b72",
+        "#ef5b9c",
+        "#f47920",
+        "#905a3d",
+        "#fab27b",
+        "#2a5caa",
+        "#444693",
+        "#726930",
+        "#b2d235",
+        "#6d8346",
+        "#ac6767",
+        "#1d953f",
+        "#6950a1",
+        "#918597"
+    ],
+    "series": [
+        {
+            "type": "pie",
+            "name": "Server Name",
+            "clockwise": true,
+            "data": [
+                {
+                    "name": "australiasoutheast",
+                    "value": 65894
+                },
+                {
+                    "name": "brazilsouth",
+                    "value": 402240
+                },
+                {
+                    "name": "eastus",
+                    "value": 432171
+                },
+                {
+                    "name": "koreacentral",
+                    "value": 25220
+                },
+                {
+                    "name": "southeastasia",
+                    "value": 114114
+                },
+                {
+                    "name": "ukwest",
+                    "value": 1085889
+                },
+                {
+                    "name": "westeurope",
+                    "value": 51915
+                },
+                {
+                    "name": "westindia",
+                    "value": 114281
+                },
+                {
+                    "name": "westus2",
+                    "value": 82254
+                }
+            ],
+            "radius": [
+                "40%",
+                "55%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "roseType": "radius",
+            "label": {
+                "show": true,
+                "position": "Outside",
+                "margin": 8,
+                "formatter": "{a|{a}}{abg|}\n{hr|}\n {b|{b}: }{c}  {per|{d}%}  ",
+                "backgroundColor": "#eee",
+                "borderColor": "#aaa",
+                "borderWidth": 1,
+                "borderRadius": 4,
+                "rich": {
+                    "a": {
+                        "color": "#999",
+                        "lineHeight": 22,
+                        "align": "center"
+                    },
+                    "abg": {
+                        "backgroundColor": "#e3e3e3",
+                        "width": "100%",
+                        "align": "right",
+                        "height": 22,
+                        "borderRadius": [
+                            4,
+                            4,
+                            0,
+                            0
+                        ]
+                    },
+                    "hr": {
+                        "borderColor": "#aaa",
+                        "width": "100%",
+                        "borderWidth": 0.5,
+                        "height": 0
+                    },
+                    "b": {
+                        "fontSize": 16,
+                        "lineHeight": 33
+                    },
+                    "per": {
+                        "color": "#eee",
+                        "backgroundColor": "#334455",
+                        "padding": [
+                            2,
+                            4
+                        ],
+                        "borderRadius": 2
+                    }
+                }
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "australiasoutheast",
+                "brazilsouth",
+                "eastus",
+                "koreacentral",
+                "southeastasia",
+                "ukwest",
+                "westeurope",
+                "westindia",
+                "westus2"
+            ],
+            "selected": {},
+            "show": true,
+            "bottom": "bottom",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "textStyle": {
+                "color": "black",
+                "fontSize": 20
+            }
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0
+    },
+    "title": [
+        {
+            "text": "Serveres Heat",
+            "left": "center",
+            "padding": 5,
+            "itemGap": 10,
+            "textStyle": {
+                "color": "black",
+                "fontSize": 40
+            }
+        }
+    ]
+};
+        chart_7d3249bfa9fc4d7eacb632afc14be3da.setOption(option_7d3249bfa9fc4d7eacb632afc14be3da);
+    </script>
+</body>
+</html>

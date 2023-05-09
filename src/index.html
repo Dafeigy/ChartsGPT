@@ -3,11 +3,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📈ChartGPT</title>
+    <title>ChartGPT📈</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico"> <!-- Add this line -->
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <div class="container">
+        <h1>ChartGPT📈</h1>
+        <div class="top">
+            <button class="png">Export PNG</button>
+            <button class="html">Export HTML</button>
+            <button class="api-button">-0p</button>
+        </div>
+        <div class="middle">
+            <div class="form-group">
+                <textarea type="text" id="user-input" name="user-input" rows="2" cols="200" placeholder="Describe charts in natural languages:"  required></textarea>
+                    <script>
+                        var textarea = document.getElementById("user-input");
+                        textarea.addEventListener("input", function() { 
+                            this.style.height = "auto"; 
+                            this.style.height = this.scrollHeight + "px"; 
+                        });
+                    </script>
+                <div id="loading-animation" class="loading-animation"></div>
+            </div>
+        </div>
+        
+        <div class="generate">
+            <button id="generate">Generate</button>
+        </div>
+        <div class="chart-container">
+        
+        </div>
+        <!-- <div class="export">
+            <button class="About">About</button>
+            <button class="Help">Help</button>
+        </div> -->
+    </div>
     
+
 </body>
 </html>

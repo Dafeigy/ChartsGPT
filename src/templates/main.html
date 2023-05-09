@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChartGPT📈</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = 'img/logo.ico') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}", type="text/css">
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/jquery-1.11.1.min.js')}}"> </script>
+</head>
+<body>
+    <div class="container">
+        <h1>ChartGPT📈</h1>
+        <div class="top">
+            <button class="png">Export PNG</button>
+            <button class="html">Export HTML</button>
+            <button class="api-button">-0p</button>
+        </div>
+        <form id = "chart-form">
+                <div class="form-group">
+                    <textarea type="text" id="user-input" name="user-input" rows="2" cols="200" placeholder="Describe charts in natural languages:"  required></textarea>
+                        <script>
+                            var textarea = document.getElementById("user-input");
+                            textarea.addEventListener("input", function() { 
+                                this.style.height = "auto"; 
+                                this.style.height = this.scrollHeight + "px"; 
+                            });
+                        </script>
+                    <div id="loading-animation" class="loading-animation"></div>
+                </div>
+        </form>
+        <div class="generate">
+            <button id="generate">Generate</button>
+        </div>
+        <div id="chart-container"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename = 'js/echarts.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+</body>
+</html>
