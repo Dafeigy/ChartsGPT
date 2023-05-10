@@ -18,7 +18,7 @@
         </div>
         <form id = "chart-form">
                 <div class="form-group">
-                    <textarea type="text" id="user-input" name="user-input" rows="2" cols="200" placeholder="Describe charts in natural languages:"  required></textarea>
+                    <textarea type="text" id="user-input" name="user-input" rows="2" cols="200" placeholder="Describe charts in natural languages:"  required>创建一个折线图，横坐标['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']，纵坐标 [150, 230, 224, 218, 135, 147, 260]</textarea>
                         <script>
                             var textarea = document.getElementById("user-input");
                             textarea.addEventListener("input", function() { 
@@ -37,5 +37,39 @@
 
     <script src="{{ url_for('static', filename = 'js/echarts.min.js') }}"></script>
     <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+    <script>
+        $("#generate").click(function () {
+            var Text = document.getElementById('user-input').value;
+            var input = {
+                'user-input': `${Text}`,
+            };
+            $.ajax({
+                url: '/ajax',
+                type: 'POST',
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json",
+                success:function (d) {
+                    console.log("Success")
+                },
+                error:function (d) {
+                    console.log(d)
+                    alert("提交数据失败")
+                }
+            })
+
+
+            $.ajax({
+                url:"/json",
+                type:"get",
+                success:function (data) {
+                    chart.setOption(JSON.parse(data));
+                },
+                error:function () {
+                    alert("发送ajax请求失败")
+                }
+            })
+        })
+    </script>
 </body>
 </html>

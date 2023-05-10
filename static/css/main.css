@@ -118,7 +118,7 @@ button:hover {
     text-align: left; /* Center text */
     margin: 0 10px; /* Add margin to the edges */
     overflow-y:hidden;
-    border-radius: 15px;
+    border-radius: 2px;
 }
 .form-group {
     position: relative;
