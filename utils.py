@@ -3,21 +3,6 @@ import sys
 import json
 import requests
 
-PROMPT = """
-请根据需求提供兼容5.2.1版本的ECharts options 符合格式的JSON字符串,回复json格式如下:{
-title: {
-left: 'center'
-},
-tooltip: {
-},
-legend: {
-orient: 'vertical',
-left: 'left'
-},
-series: [],
-...
-}`,不需要说“以下是符合要求的JSON字符串：
-"""
 
 
 class GPTBot:
@@ -29,19 +14,19 @@ class GPTBot:
         self.messages = [
             {"role": "system", 
              "content": 
-"""请根据需求提供兼容5.2.1版本的ECharts options 符合格式的JSON字符串,回复json格式如下:{
-title: {
-left: 'center'
-},
-tooltip: {
-},
-legend: {
-orient: 'vertical',
-left: 'left'
-},
-series: [],
-...
-}`,不需要说“以下是符合要求的JSON字符串：”"""}
+                """请根据需求提供兼容5.2.1版本的ECharts options 符合格式的JSON字符串,回复json格式如下:{
+                title: {
+                left: 'center'
+                },
+                tooltip: {
+                },
+                legend: {
+                orient: 'vertical',
+                left: 'left'
+                },
+                series: [],
+                ...
+                }`,不需要说“以下是符合要求的JSON字符串：”"""}
         ]
         self.data = {
             "model": self.model,
@@ -55,13 +40,58 @@ series: [],
         )
         req = requests.post(url=self.url_proxy, json=self.data, headers=self.headers)
         response =req.json()
+        print(response)
         reply = response["choices"][0]["message"]['content']
         self.messages.pop()
+        print(reply)
         try:
-            reply = json.loads(reply[3:-3])
+            return reply
         except:
-            reply = 'Parsing Error'
-        return reply
+            print("Acquiring failed.")
+            reply = '''
+            {
+    "title": {
+        "left": "center"
+    },
+    "tooltip": {},
+    "legend": {
+        "orient": "vertical",
+        "left": "left"
+    },
+    "xAxis": {
+        "type": "category",
+        "data": [
+            "Json",
+            "parse",
+            "Failed",
+            "Please",
+            "Contact",
+            "me",
+            "in Github"
+        ]
+    },
+    "yAxis": {
+        "type": "value"
+    },
+    "series": [
+        {
+            "type": "line",
+            "data": [
+                4,
+                0,
+                4,
+                4,
+                0,
+                4,
+                0
+            ]
+        }
+    ]
+}
+            
+            '''
+            return reply
+        
     
 
     def load_cfg(self, cfg_file):
@@ -69,12 +99,6 @@ series: [],
             config = json.load(f)
         return config
     
-
-def get_requests():
-    pass
-
-def get_response():
-    pass
 
 if __name__ == "__main__":
 

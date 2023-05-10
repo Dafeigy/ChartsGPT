@@ -1,8 +1,10 @@
-from flask import Flask,render_template, request
+from flask import Flask,render_template, request, jsonify
 import json
 import utils
 
 app = Flask(__name__)
+Bot = utils.GPTBot('config.json')
+
 
 @app.route("/",methods=['GET', 'POST'])
 def homepage():
@@ -10,55 +12,19 @@ def homepage():
     
 @app.route("/json",methods=['GET', 'POST'])
 def response():
-    # message = utils.get_requests()
-    # return utils.get_response(message)
-    return json.dumps(
-{
-    "title": {
-        "left": "center"
-    },
-    "tooltip": {},
-    "legend": {
-        "orient": "vertical",
-        "left": "left"
-    },
-    "xAxis": {
-        "type": "category",
-        "data": [
-            "Mon",
-            "Tue",
-            "Wed",
-            "Thu",
-            "Fri",
-            "Sat",
-            "Sun"
-        ]
-    },
-    "yAxis": {
-        "type": "value"
-    },
-    "series": [
-        {
-            "type": "line",
-            "data": [
-                150,
-                230,
-                224,
-                218,
-                135,
-                147,
-                260
-            ]
-        }
-    ]
-}
-    )
+    global response
+    response = Bot.send(user_input['user-input'])
+    return jsonify(response)
     
 
 @app.route("/ajax",methods=['POST','GET'])
 def ajax():
-    message = request.json
-    return message
+    global user_input
+    
+    user_input = request.json
+    
+    print(user_input['user-input'])
+    return user_input
 
 
 
