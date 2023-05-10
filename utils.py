@@ -14,7 +14,7 @@ class GPTBot:
         self.messages = [
             {"role": "system", 
              "content": 
-                """请根据需求提供兼容5.2.1版本的ECharts options 符合格式的JSON字符串,回复json格式如下:{
+                """请根据需求，直接返回提供兼容5.2.1版本的ECharts options 符合格式的JSON字符串,不需要在回复中对返回内容说明。回复格式如下:{
                 title: {
                 left: 'center'
                 },
@@ -26,7 +26,7 @@ class GPTBot:
                 },
                 series: [],
                 ...
-                }`,不需要说“以下是符合要求的JSON字符串：”"""}
+                }"""}
         ]
         self.data = {
             "model": self.model,
