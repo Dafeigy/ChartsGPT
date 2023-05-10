@@ -1,8 +1,0 @@
-{
-    "url": "https://openai.api2d.net/v1/chat/completions",
-    "model":"gpt-3.5-turbo",
-    "headers": {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer fk186769-WebqxB07lQrDTpv0x38AumMNBRW4rkkW"
-    }
-}

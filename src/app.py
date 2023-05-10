@@ -1,8 +1,7 @@
 from flask import Flask,render_template, request
-from utils import GPTBot 
+import utils
 
 app = Flask(__name__)
-bot = GPTBot(cfg = 'config.json')
 
 @app.route("/",methods=['GET', 'POST'])
 def homepage():
@@ -10,6 +9,8 @@ def homepage():
     
 @app.route("/json",methods=['GET', 'POST'])
 def json():
+    message = utils.get_requests()
+    return utils.get_response(message)
     
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=5000,debug=True)
