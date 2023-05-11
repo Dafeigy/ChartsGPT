@@ -33,7 +33,7 @@
 
 * [wishtodaya/ChartGenie: 一个可以使用自然语言生成图表的网站 ](https://github.com/wishtodaya/ChartGenie)的灵感提供与Prompt参考；
 
-* [skyerhxx/COVID-19_Tracking: 基于Python+Flask+Echarts的疫情爬虫&数据可视化项目中ajax和flask的数据交互参考；
+* [skyerhxx/COVID-19_Tracking: 基于Python+Flask+Echarts的疫情爬虫&数据可视化项目]中ajax和flask的数据交互参考；
 
 * API2d：https://api2d.com/r/186769国内稳定的接口调用
 
