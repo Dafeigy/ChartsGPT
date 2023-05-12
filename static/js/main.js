@@ -5,7 +5,7 @@ const chartContainer = document.getElementById("chart-container");
 
 // 初始化ECharts实例
 const chart = echarts.init(chartContainer);
-console.log("Charts initialized.")
+console.log("ECharts initialized.")
 
 // 为表单添加事件监听器
 document.getElementById("chart-form").addEventListener("submit", async (event) => {
