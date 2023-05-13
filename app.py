@@ -12,17 +12,18 @@ def homepage():
     
 @app.route("/json",methods=['GET', 'POST'])
 def response():
-    global response
+    global response_
     response = Bot.send(user_input['user-input'])
-    return jsonify(response)
+    
+    response_ = Bot.parse_reply(response)
+    print(response_)
+    return response_
     
 
 @app.route("/ajax",methods=['POST','GET'])
 def ajax():
     global user_input
-    
     user_input = request.json
-    
     print(user_input['user-input'])
     return user_input
 

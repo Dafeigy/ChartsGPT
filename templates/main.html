@@ -17,62 +17,27 @@
         <form id = "chart-form">
                 <div class="form-group">
                     <textarea type="text" id="user-input" name="user-input" rows="2" cols="200" placeholder="Describe charts in natural languages:"  required></textarea>
-                        <script>
-                            var textarea = document.getElementById("user-input");
-                            textarea.addEventListener("input", function() { 
-                                this.style.height = "auto"; 
-                                this.style.height = this.scrollHeight + "px"; 
-                            });
-                        </script>
-                    <div id="loading-animation" class="loading-animation"></div>
+                    
                 </div>
         </form>
         <div class="generate">
             <button id="generate">Generate</button>
+            
+        </div>
+        <div id="loader" class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
         <div id="chart-container"></div>
     </div>
 
     <script src="{{ url_for('static', filename = 'js/echarts.min.js') }}"></script>
     <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
-    <script>
-        $("#generate").click(function () {
-            var Text = document.getElementById('user-input').value;
-            var input = {
-                'user-input': `${Text}`,
-            };
-            var status = false;
-            $.ajax({
-                url: '/ajax',
-                type: 'POST',
-                data: JSON.stringify(input),
-                dataType: "json",
-                contentType: "application/json",
-                success:function (d) {
-                    console.log("数据提交成功")
-                    status = true
-                },
-                error:function (d) {
-                    console.log(d)
-                    alert("提交数据失败")
-                }
-            })
 
-            $.ajax({
-                url:"/json",
-                type:"get",
-                async: false,
-                timeout: 10000,
-                success:function (data) {
-                    chart.clear()
-                    chart.setOption(JSON.parse(data));
-                },
-                error:function (data) {
-                    alert("发送ajax请求失败")
-                    console.log(data)
-                }
-            })
-        })
-    </script>
 </body>
 </html>

@@ -86,27 +86,8 @@ button:hover {
     margin-top: 100px;
     width: 100%;
     height: 500px;
-    /* margin: 2em auto; */
+    margin: 2em auto;
 }
-/* Add this to your main.css file */
-.loading-animation {
-    display: none;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #007bff;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    animation: spin 1s linear infinite;
-    position: absolute;
-    top: 50%; /* Center the animation vertically */
-    left: 50%; /* Center the animation horizontally */
-}
-  
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
   
   /* Add or modify the following CSS rules as needed */
   textarea[type="text"] {
@@ -115,26 +96,78 @@ button:hover {
     padding: 10px;
     width: 800px;
     resize: none; /* Disable resizing */
-    text-align: left; /* Center text */
+    text-align: left; /* Left text */
     margin: 0 10px; /* Add margin to the edges */
     overflow-y:hidden;
-    border-radius: 2px;
+    border-radius: 15px;
+    font-family: "Microsoft YaHei";
 }
 .form-group {
     position: relative;
 }
 
-.export{
+#loader{
+    justify-content: center;
+    align-items: center;
+    
     position: relative;
-    width: 800px;
+    display: none;
     left: 50%;
     transform: translate(-50%);
+
+    margin-top: 20px;
+
 }
-.png, .html{
-    padding:auto;
-    width: 150px;
-    margin-top: 10px;
-    position: relative;
-    left: 20%;
-    transform: translate(-100%);
+#loader span{
+    width: 10px;
+    height: 48px;
+    margin: 0 13px;
+    background-color: #f4f4f4;
+    animation: animate 1.4s linear infinite;
+
+}
+#loader span:nth-child(1){
+    animation-delay: 0s;
+}
+#loader span:nth-child(2){
+    animation-delay: 0.2s;
+}
+#loader span:nth-child(3){
+    animation-delay: 0.4s;
+}
+#loader span:nth-child(4){
+    animation-delay: 0.6s;
+}
+#loader span:nth-child(5){
+    animation-delay: 0.8s;
+}
+#loader span:nth-child(6){
+    animation-delay: 1.0s;
+}
+#loader span:nth-child(7){
+    animation-delay: 1.2s;
+}
+
+@keyframes animate
+{
+    0%
+    {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transform: translateX(-50px) scale(1);
+    }
+
+    50%
+    {
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        opacity: 1;
+        transform: translateX(0px ) scale(1.2);
+    }
+
+    100%
+    {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transform: translateX(50px) scale(1);
+    }
 }

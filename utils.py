@@ -2,6 +2,7 @@
 import sys
 import json
 import requests
+import re
 
 
 
@@ -11,22 +12,24 @@ class GPTBot:
         self.headers = self.cfg['headers']
         self.url_proxy = self.cfg['url']
         self.model = self.cfg['model']
+        self.rule1 = re.compile(r'```(.*?)```',re.S)
+        self.rule2 = re.compile(r'```json(.*?)```',re.S)
         self.messages = [
             {"role": "system", 
              "content": 
-                """请根据需求，直接返回提供兼容5.2.1版本的ECharts options 符合格式的JSON字符串,不需要在回复中对返回内容说明。回复格式如下:{
-                title: {
-                left: 'center'
+                """根据需求，直接返回提供兼容5.2.1版本的ECharts options符合格式的JSON字符串,回复格式如下:{
+                "title": {
+                "left": 'center'
                 },
-                tooltip: {
+                "tooltip": {
                 },
-                legend: {
-                orient: 'vertical',
-                left: 'left'
+                "legend": {
+                "orient": 'vertical',
+                "left": 'left'
                 },
-                series: [],
+                "series": [],
                 ...
-                }"""}
+                }，不需要说明解释返回内容，请严格遵循json语法返回。"""}
         ]
         self.data = {
             "model": self.model,
@@ -40,10 +43,8 @@ class GPTBot:
         )
         req = requests.post(url=self.url_proxy, json=self.data, headers=self.headers)
         response =req.json()
-        print(response)
         reply = response["choices"][0]["message"]['content']
         self.messages.pop()
-        print(reply)
         try:
             return reply
         except:
@@ -99,6 +100,24 @@ class GPTBot:
             config = json.load(f)
         return config
     
+    def parse_reply(self,reply):
+        results = self.rule2.findall(reply)
+        if len(results) == 0:
+            results = self.rule1.findall(reply)
+            if len(results) == 0:
+                return None
+        result = results[0]
+        return result
+
+    def check_balance(self):
+        url = 'https://openai.api2d.net/dashboard/billing/credit_grants'
+        res = requests.get(url, headers=self.headers)
+        try:
+            balance = res.json()['total_available']
+        except:
+            balance = 0
+            print("Getting balance error!")
+        return balance
 
 if __name__ == "__main__":
 
@@ -106,4 +125,6 @@ if __name__ == "__main__":
     while True:
         message = input("Input:\n")
         reply = chatGPT.send(message)
-        print(reply)
+        print(f"origin reply:\n{reply}")
+        reply_ = chatGPT.parse_reply(reply)
+        print(f"Parsed reply:\n{reply_}")
