@@ -15,7 +15,7 @@ def response():
     global response_
     response = Bot.send(user_input['user-input'])
     
-    response_ = Bot.parse_reply(response).replace('\n','')
+    response_ = Bot.parse_reply(response)
     print(response_)
     return response_
     
