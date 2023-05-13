@@ -17,14 +17,14 @@
         <form id = "chart-form">
                 <div class="form-group">
                     <textarea type="text" id="user-input" name="user-input" rows="2" cols="200" placeholder="Describe charts in natural languages:"  required></textarea>
-                        <script>
+                        <!-- <script>
                             var textarea = document.getElementById("user-input");
                             textarea.style.height = textarea.scrollHeight + "px";
                             textarea.addEventListener("input", function() { 
                                 this.style.height = "auto"; 
                                 this.style.height = this.scrollHeight + "px"; 
                             });
-                        </script>
+                        </script> -->
                     <div id="loading-animation" class="loading-animation"></div>
                 </div>
         </form>
@@ -36,49 +36,6 @@
 
     <script src="{{ url_for('static', filename = 'js/echarts.min.js') }}"></script>
     <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
-    <script>
-        $("#generate").click(function () {
-            var Text = document.getElementById('user-input').value;
-            var input = {
-                'user-input': `${Text}`,
-            };
-            
-            $.ajax({
-                url: '/ajax',
-                type: 'POST',
-                data: JSON.stringify(input),
-                dataType: "json",
-                contentType: "application/json",
-                success:function (d) {
-                    console.log("数据提交成功")
-                },
-                error:function (d) {
-                    console.log(d)
-                    alert("提交数据失败，请检查代理设置或余额。")
-                }
-            })
-            function f(){
-            document.getElementById('user-input').disabled = true;
 
-            $.ajax({
-                url:"/json",
-                type:"get",
-                async: true,
-                timeout: 60000,
-                success:function (data) {
-                    chart.clear()
-                    chart.setOption(JSON.parse(data));
-                },
-                error:function (data) {
-                    alert("获取返回json失败，console已记录返回数据")
-                    console.log(data)
-                }
-            })
-
-            document.getElementById('user-input').disabled = false;
-            }
-            f();
-        })
-    </script>
 </body>
 </html>

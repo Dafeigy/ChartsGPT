@@ -110,12 +110,12 @@ button:hover {
   
   /* Add or modify the following CSS rules as needed */
   textarea[type="text"] {
-    height: 42px;
+    height: 62px;
     font-size: 18px;
     padding: 10px;
     width: 800px;
     resize: none; /* Disable resizing */
-    text-align: left; /* Center text */
+    text-align: left; /* Left text */
     margin: 0 10px; /* Add margin to the edges */
     overflow-y:hidden;
     border-radius: 15px;

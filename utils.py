@@ -116,6 +116,16 @@ class GPTBot:
         result = results[0]
         return result
 
+    def check_balance(self):
+        url = 'https://openai.api2d.net/dashboard/billing/credit_grants'
+        res = requests.get(url, headers=self.headers)
+        try:
+            balance = res.json()['total_available']
+        except:
+            balance = 0
+            print("Getting balance error!")
+        return balance
+
 if __name__ == "__main__":
 
     chatGPT = GPTBot(cfg = 'config.json')
