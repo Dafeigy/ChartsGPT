@@ -15,9 +15,9 @@ def response():
     global response_
     response = Bot.send(user_input['user-input'])
     
-    response_ = Bot.parse_reply(response)
+    response_ = Bot.parse_reply(response).replace('\n','')
     print(response_)
-    return jsonify(response_)
+    return response_
     
 
 @app.route("/ajax",methods=['POST','GET'])

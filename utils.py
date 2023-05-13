@@ -27,13 +27,6 @@ class GPTBot:
                 "orient": 'vertical',
                 "left": 'left'
                 },
-                "toolbox": {
-                    "show": true,
-                    "x": 'center',
-                    "y": 'bottom',
-                    "feature": {
-                        "dataView": { show: true, readOnly: false },
-                        "saveAsImage": {show: true, title: '保存截图', type: 'png'}}},
                 "series": [],
                 ...
                 }，不需要说明解释返回内容，请严格遵循json语法返回。"""}

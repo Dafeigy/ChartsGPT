@@ -7,35 +7,22 @@ const chartContainer = document.getElementById("chart-container");
 const chart = echarts.init(chartContainer);
 console.log("ECharts initialized.")
 
+
+// 自适应Textarea缩放
 var textarea = document.getElementById("user-input");
 textarea.style.height = textarea.scrollHeight + "px";
 textarea.addEventListener("input", function() { 
     this.style.height = "auto"; 
     this.style.height = this.scrollHeight + "px"; 
 });
+const optool = {"toolbox": {
+  "show": true,
+  "x": 'center',
+  "y": 'bottom',
+  "feature": {
+      "dataView": { show: true, readOnly: false },
+      "saveAsImage": {show: true, title: '保存截图', type: 'png'}}},}
 
-function f(){
-
-  $.ajax({
-      url:"/json",
-      type:"get",
-      async: true,
-      timeout: 60000,
-      beforeSend:function(){document.getElementById('user-input').disabled = true},
-      success:function (data) {
-          document.getElementById('user-input').disabled = false
-          chart.clear()
-          chart.setOption(JSON.parse(data));
-      },
-      error:function (data) {
-          alert("获取返回json失败，console已记录返回数据")
-          console.log(data)
-      },
-      complete:function(){document.getElementById('user-input').disabled = false;}
-  })
-
-  
-  }
 
 
 $("#generate").click(function () {
@@ -59,5 +46,32 @@ $("#generate").click(function () {
       }
   })
   
-  f();
+  $.ajax({
+      url:"/json",
+      type:"get",
+      async: true,
+      timeout: 60000,
+      beforeSend:function(){
+        document.getElementById('user-input').disabled = true
+        document.getElementById('generate').disabled = true
+        document.getElementById('loader').style.display = 'flex'
+    },
+      success:function (data) {
+          document.getElementById('user-input').disabled = false
+          document.getElementById('generate').disabled = false
+          document.getElementById('loader').style.display = 'none'
+          chart.clear()
+          chart.setOption(optool)
+          chart.setOption($.parseJSON(data));
+      },
+      error:function (data) {
+          alert("获取返回json失败，console已记录返回数据")
+          console.log(data)
+      },
+      complete:function(){
+        document.getElementById('user-input').disabled = false;
+        document.getElementById('generate').disabled = false
+        document.getElementById('loader').style.display = 'none'
+      }
+  })
 })
