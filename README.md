@@ -8,6 +8,10 @@
     <em>使用自然语言生成Echarts图表</em>
 </p>
 
+## What it does
+
+![demo](./demo.gif)
+
 ## How to use
 
 根目录中新建`config.json`文件：
