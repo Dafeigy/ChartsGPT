@@ -18,7 +18,7 @@ textarea.addEventListener("input", function() {
 const optool = {"toolbox": {
   "show": true,
   "x": 'center',
-  "y": 'bottom',
+  "y": 'bottom',  
   "feature": {
       "dataView": { show: true, readOnly: false },
       "saveAsImage": {show: true, title: '保存截图', type: 'png'}}},}
