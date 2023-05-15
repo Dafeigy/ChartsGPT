@@ -23,14 +23,34 @@ const optool = {"toolbox": {
       "dataView": { show: true, readOnly: false },
       "saveAsImage": {show: true, title: '保存截图', type: 'png'}}},}
 
+function checkBalance(){
+    document.getElementById("refresh").disabled = true
+    console.log("Checking balance")
+    $.ajax({
+        url:"/balance",
+        type:"get",
+        async: true,
+        timeout: 5000,
+        success:function (data) {
+            document.getElementById('balance').value = `${data} p`
+            document.getElementById("refresh").disabled = false
+            console.log(`${data} p remains.`)
+        },
+        error:function (data) {
+            alert("获取点数失败，请检查token设置")
+            document.getElementById('balance').value = `-0 p`
+            document.getElementById("refresh").disabled = false
+        },
+    })
+}
 
+// checkBalance()
 
 $("#generate").click(function () {
   var Text = document.getElementById('user-input').value;
   var input = {
       'user-input': `${Text}`,
   };
-  
   $.ajax({
       url: '/ajax',
       type: 'POST',
@@ -38,7 +58,7 @@ $("#generate").click(function () {
       dataType: "json",
       contentType: "application/json",
       success:function (d) {
-          console.log("数据提交成功")
+        console.log("数据提交成功")
       },
       error:function (d) {
           console.log(d)
@@ -69,9 +89,15 @@ $("#generate").click(function () {
           console.log(data)
       },
       complete:function(){
-        document.getElementById('user-input').disabled = false;
-        document.getElementById('generate').disabled = false
+        document.getElementById('user-input').disabled = "false";
+        document.getElementById('generate').disabled = "false"
         document.getElementById('loader').style.display = 'none'
       }
   })
 })
+
+$("#refresh").click(function(){
+    checkBalance()
+})
+
+// setInterval(checkBalance, 30000) #定时查看

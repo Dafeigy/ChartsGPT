@@ -36,15 +36,15 @@ form {
 
 button {
     font-size: 1.1em;
-    background-color: #333;
-    color: #fff;
+    background-color: #e3e3e3;
+    color: #333;
     border: none;
     padding: 6px 12px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #555;
+    background-color: #d3d3d3;
 }
 
 
@@ -57,8 +57,12 @@ button:hover {
 }
 #info{
     float: left ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100px;
     margin-right: auto;
+    font-size: 15px;
 }
 #api-button{
     display: flex;
@@ -104,6 +108,9 @@ button:hover {
     position: relative;
     left: 50%;
     transform: translate(-50%);
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .form-group {

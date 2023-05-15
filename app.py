@@ -27,6 +27,11 @@ def ajax():
     print(user_input['user-input'])
     return user_input
 
+@app.route("/balance", methods = ['GET'])
+def balance():
+    balance = Bot.check_balance()
+    return str(balance)
+
 
 
 if __name__ == '__main__':

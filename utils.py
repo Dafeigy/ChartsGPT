@@ -122,9 +122,11 @@ class GPTBot:
 if __name__ == "__main__":
 
     chatGPT = GPTBot(cfg = 'config.json')
-    while True:
-        message = input("Input:\n")
-        reply = chatGPT.send(message)
-        print(f"origin reply:\n{reply}")
-        reply_ = chatGPT.parse_reply(reply)
-        print(f"Parsed reply:\n{reply_}")
+    # while True:
+    #     message = input("Input:\n")
+    #     reply = chatGPT.send(message)
+    #     print(f"origin reply:\n{reply}")
+    #     reply_ = chatGPT.parse_reply(reply)
+    #     print(f"Parsed reply:\n{reply_}")
+    balance = chatGPT.check_balance()
+    print(balance)
