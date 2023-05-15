@@ -7,7 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #fff;
 }
 
 .container {
@@ -47,20 +47,57 @@ button:hover {
     background-color: #555;
 }
 
+
+
 .top{
     margin: 0 auto;
-    max-width: 1000;
+    max-width: 800px;
     padding: 10px;
-    left: 50%;
-    position: relative;
-    transform: translate(-50%);
+    display: flex;
 }
-.api-button{
-    position: relative;
-    left: 40%;
+#info{
+    float: left ;
     width: 100px;
+    margin-right: auto;
+}
+#api-button{
+    display: flex;
+    width: 150px;
+    border: solid 1px;
+    border-color: #999;
 }
 
+#balance{
+    height: 40px;
+    text-align: right;
+    width: 110px;
+    
+    color: #888;
+    font-size: 15px;
+    padding-right: 5%;
+
+}
+#refresh{
+    height: 40px;
+    width: 40px;
+    background-color: #e3e3e3;
+    
+    margin-left: auto;
+}
+#settings{
+    background-color: #e3e3e3;
+    display: flex;
+    float: right ;
+    width: 120px;
+    color: #333;
+    font-size: 15px;
+    align-items:center;
+    justify-content:center;
+    padding: 5px;
+    border: solid 1px;
+    border-left: none;
+    border-color: #999;
+}
 #generate{
     width: 200px;
     height: 40px;
@@ -122,7 +159,7 @@ button:hover {
     width: 10px;
     height: 48px;
     margin: 0 13px;
-    background-color: #f4f4f4;
+    background-color: #fff;
     animation: animate 1.4s linear infinite;
 
 }
