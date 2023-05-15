@@ -89,8 +89,8 @@ $("#generate").click(function () {
           console.log(data)
       },
       complete:function(){
-        document.getElementById('user-input').disabled = "false";
-        document.getElementById('generate').disabled = "false"
+        document.getElementById('user-input').disabled = false
+        document.getElementById('generate').disabled = false
         document.getElementById('loader').style.display = 'none'
       }
   })

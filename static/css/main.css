@@ -16,7 +16,7 @@ body {
     padding: 0 20px;
     overflow: hidden;
     border-radius: 2px;
-    border-color: #333;
+    border-color: #999;
 }
 
 h1 {
@@ -39,12 +39,19 @@ button {
     background-color: #e3e3e3;
     color: #333;
     border: none;
+    border-color: #333;
     padding: 6px 12px;
     cursor: pointer;
+    transition: all .4s ease-in-out;
 }
 
 button:hover {
     background-color: #d3d3d3;
+    transition: all .4s ease-in-out;
+}
+
+button:hover:after{
+    transition: all .4s;
 }
 
 
@@ -85,7 +92,7 @@ button:hover {
     height: 40px;
     width: 40px;
     background-color: #e3e3e3;
-    
+    border: none;
     margin-left: auto;  
 }
 #settings{
@@ -102,17 +109,25 @@ button:hover {
     border-left: none;
     border-color: #999;
 }
+
+
 #generate{
-    width: 200px;
+    width: 180px;
     height: 40px;
     position: relative;
     left: 50%;
+    font-size: 20px;
     transform: translate(-50%);
     align-items: center;
     justify-content: center;
     display: flex;
+    transition: .4s all;
 }
 
+#generate:hover{
+    background-color: #666;
+    color: #e3e3e3;
+}
 .form-group {
     display: flex;
     flex-direction: column;
