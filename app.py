@@ -13,18 +13,14 @@ def homepage():
 @app.route("/json",methods=['GET', 'POST'])
 def response():
     global response_
-    response = Bot.send(user_input['user-input'])
-    
-    response_ = Bot.parse_reply(response)
-    print(response_)
-    return response_
+    _response = Bot.send(user_input['user-input'])
+    return _response
     
 
 @app.route("/ajax",methods=['POST','GET'])
 def ajax():
     global user_input
     user_input = request.json
-    print(user_input['user-input'])
     return user_input
 
 @app.route("/balance", methods = ['GET'])
