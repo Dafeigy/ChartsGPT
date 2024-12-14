@@ -14,23 +14,11 @@
 
 ## How to use
 
-根目录中新建`config.json`文件：
+根目录中新建`.env`文件：
 
-```json
-{
-    "url": "https://openai.api2d.net/v1/chat/completions",
-    "model":"gpt-3.5-turbo",
-    "headers": {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer YOUR-KEY"
-    }
-}
 ```
-
-填写`key`与`url`即可，支持api2d，其余参数与openai的api一致。该方法还比较丑陋，后续会在前端页面进行调整优化。
-
-运行`app.py`即可,默认运行在`https://127.0.0.1:5000`，以下是一些可供参考的案例：
-
+API_KEY= "sk-xxxxxxxx"
+```
 
 1.创建一个折线图，横坐标['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']，纵坐标 [150, 230, 224, 218, 135, 147, 260] 
 
@@ -48,7 +36,3 @@
 * [skyerhxx/COVID-19_Tracking: 基于Python+Flask+Echarts的疫情爬虫&数据可视化项目](https://github.com/skyerhxx/COVID-19_Tracking)中ajax和flask的数据交互参考；
 
 * [API2d](https://api2d.com/r/186769)： 国内稳定的接口调用
-
-感谢今天读的论文很难才导致有闲心和时间把这个东西写出来^_^
-
-## 
