@@ -3,7 +3,7 @@ import json
 import utils
 
 app = Flask(__name__)
-Bot = utils.GPTBot('config.json')
+Bot = utils.GPTBot()
 
 
 @app.route("/",methods=['GET', 'POST'])
@@ -22,12 +22,6 @@ def ajax():
     global user_input
     user_input = request.json
     return user_input
-
-@app.route("/balance", methods = ['GET'])
-def balance():
-    balance = Bot.check_balance()
-    return str(balance)
-
 
 
 if __name__ == '__main__':

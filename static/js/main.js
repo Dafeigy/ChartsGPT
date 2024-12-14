@@ -77,6 +77,8 @@ $("#generate").click(function () {
         document.getElementById('loader').style.display = 'flex'
     },
       success:function (data) {
+        data = data.replace("```json","")
+        data = data.replace("```",'')
           document.getElementById('user-input').disabled = false
           document.getElementById('generate').disabled = false
           document.getElementById('loader').style.display = 'none'
