@@ -18,7 +18,14 @@
 
 ```
 API_KEY= "sk-xxxxxxxx"
+
+MODEL = "Qwen/Qwen2.5-Coder-7B-Instruct"
+
+URL_BASE = "https://api.siliconflow.cn/v1/chat/completions"
+
 ```
+
+部署时记得导入.env到vercel里面。
 
 1.创建一个折线图，横坐标['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']，纵坐标 [150, 230, 224, 218, 135, 147, 260] 
 
