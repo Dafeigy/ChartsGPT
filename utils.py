@@ -16,7 +16,7 @@ class GPTBot:
         self.messages = [
             {"role": "system", 
              "content": """根据需求，直接返回提供兼容5.2.1版本的ECharts options符合格式的JSON字符串,回复格式如下:
-                【{
+                {
                 "title": {
                     "left": "center"
                     },
@@ -26,7 +26,7 @@ class GPTBot:
                     "left": "left"
                 },
                 "series": []
-            }】，不需要说明解释返回内容，请严格遵循json语法返回。"""}
+            }，不需要说明解释返回内容，请严格遵循json语法返回。"""}
         ]
         self.data = {
             "model": self.model,
@@ -41,7 +41,6 @@ class GPTBot:
              "content": message}
         )
         req = requests.post(url=self.url_proxy, json=self.data, headers=self.headers)
-        print(self.data)
         response =req.json()
         print(response)
         reply = response["choices"][0]["message"]['content']

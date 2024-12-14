@@ -59,6 +59,7 @@ button:hover:after{
 .top{
     margin: 0 auto;
     max-width: 800px;
+    width: 100%;
     padding: 10px;
     display: flex;
 }
@@ -71,44 +72,22 @@ button:hover:after{
     margin-right: auto;
     font-size: 15px;
 }
-#api-button{
-    display: flex;
-    width: 150px;
-    border: solid 1px;
-    border-color: #999;
+
+
+#example{
+    font-size: 24px;
 }
 
-#balance{
-    height: 40px;
-    text-align: right;
-    width: 110px;
-    
-    color: #888;
-    font-size: 15px;
-    padding-right: 5%;
-
-}
-#refresh{
-    height: 40px;
-    width: 40px;
-    background-color: #e3e3e3;
-    border: none;
-    margin-left: auto;  
-}
-#settings{
-    background-color: #e3e3e3;
+ul {
     display: flex;
-    float: right ;
-    width: 120px;
-    color: #333;
-    font-size: 15px;
-    align-items:center;
-    justify-content:center;
-    padding: 5px;
-    border: solid 1px;
-    border-left: none;
-    border-color: #999;
+    flex-direction: column;
+    align-items: left;
+    width: 50vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
 }
+
 
 
 #generate{
