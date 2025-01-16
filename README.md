@@ -10,14 +10,38 @@
 
 ## What it does
 
+[ChartGPT](https://charts-gpt.vercel.app/)可以让你用自然语言描述生成ECharts图表。得益于国产大模型的价格优势，现在已可以免费使用QWen2.5-7B即可实现以前ChatGPT-3.5都做不到的效果：
+
+
 ![demo](./demo.gif)
 
 ## How to use
 
-根目录中新建`.env`文件：
+### 开发
+开发前新建.env文件：
+```bash
+URL_BASE=https://api.siliconflow.cn/v1/chat/completions
+
+MODEL=Qwen/Qwen2.5-Coder-7B-Instruct
+
+API_KEY=YOUR_API_KEY
+```
+然后：
+
+```bash
+bash ./local_dev.sh
+```
+
+然后就可以运行主程序：
+
+```python
+python app.py
+```
+### 部署
+使用Vercel部署。根目录中新建`.env`文件：
 
 ```
-API_KEY= "sk-xxxxxxxx"
+API_KEY= "sk-xxxxxxxx" # 填入自己的API key
 
 MODEL = "Qwen/Qwen2.5-Coder-7B-Instruct"
 
@@ -25,7 +49,7 @@ URL_BASE = "https://api.siliconflow.cn/v1/chat/completions"
 
 ```
 
-部署时记得导入.env到vercel里面。
+部署时记得导入.env到vercel里面。你可以用不同语言来描述你的需求：
 
 1.创建一个折线图，横坐标['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']，纵坐标 [150, 230, 224, 218, 135, 147, 260] 
 
@@ -42,4 +66,4 @@ URL_BASE = "https://api.siliconflow.cn/v1/chat/completions"
 
 * [skyerhxx/COVID-19_Tracking: 基于Python+Flask+Echarts的疫情爬虫&数据可视化项目](https://github.com/skyerhxx/COVID-19_Tracking)中ajax和flask的数据交互参考；
 
-* [API2d](https://api2d.com/r/186769)： 国内稳定的接口调用
+* [Siliconflow](https://cloud.siliconflow.cn/) 中稳定可靠的API调用。
