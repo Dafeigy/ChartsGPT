@@ -77,8 +77,10 @@ $("#generate").click(function () {
         document.getElementById('loader').style.display = 'flex'
     },
       success:function (data) {
-        data = data.replace("```json","")
-        data = data.replace("```",'')
+        data = data.replace("```json","");
+        data = data.replace("```",'');
+        data = data.replace("'","\"");
+        console.log(data);
           document.getElementById('user-input').disabled = false
           document.getElementById('generate').disabled = false
           document.getElementById('loader').style.display = 'none'

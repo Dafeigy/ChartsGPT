@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Depature";
+    src: url("staticfonts\DepartureMono-Regular.woff2");
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -10,82 +15,84 @@ body {
     background-color: #fff;
 }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 20px;
-    overflow: hidden;
-    border-radius: 2px;
-    border-color: #999;
-}
-
-h1 {
-    padding: 1;
-    text-align: center;
-    color: #333;
-    font-size: 56px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1em;
-}
-
-button {
-    font-size: 1.1em;
-    background-color: #e3e3e3;
-    color: #333;
-    border: none;
-    border-color: #333;
-    padding: 6px 12px;
-    cursor: pointer;
-    transition: all .4s ease-in-out;
-}
-
-button:hover {
-    background-color: #d3d3d3;
-    transition: all .4s ease-in-out;
-}
-
-button:hover:after{
-    transition: all .4s;
-}
-
-
-
-.top{
-    margin: 0 auto;
-    max-width: 800px;
-    width: 100%;
-    padding: 10px;
-    display: flex;
-}
-#info{
-    float: left ;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    margin-right: auto;
-    font-size: 15px;
-}
-
-
-#example{
-    font-size: 24px;
+@media screen and (orientation: landscape){ 
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100vmin;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        padding: 0 20px;
+        overflow: hidden;
+        border-radius: 2px;
+        border-color: #999;
+    }
+    
+    h1 {
+        padding: 1;
+        text-align: center;
+        color: #333;
+        font-size: 56px;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1em;
+        width: 100vmin;
+    }
+    
+    button {
+        font-size: 1.1em;
+        background-color: #e3e3e3;
+        color: #333;
+        border: none;
+        border-color: #333;
+        padding: 6px 12px;
+        cursor: pointer;
+        transition: all .4s ease-in-out;
+    }
+    
+    button:hover {
+        background-color: #d3d3d3;
+        transition: all .4s ease-in-out;
+    }
+    
+    button:hover:after{
+        transition: all .4s;
+    }
+    .top{
+        margin: 0 auto;
+        max-width: 800px;
+        width: 100%;
+        padding: 10px;
+        display: flex;
+    }
+    #info{
+        float: left ;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        margin-right: auto;
+        font-size: 15px;
+    }
+    
+    
+    #example{
+        font-size: 24px;
+    }
 }
 
 ul {
     display: flex;
     flex-direction: column;
     align-items: left;
-    width: 50vw;
+    width: 100%;
     position: relative;
-    left: 50%;
-    transform: translate(-50%);
 }
 
 
@@ -111,28 +118,25 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 1000px;
-    max-height: 300px;
+    width: 100vmin;
+    /* max-width: 1000px;
+    max-height: 300px; */
     margin-bottom: 1em;
 }
-
-
-
 
 #chart-container {
     margin-top: 100px;
     width: 100%;
-    height: 500px;
+    height: 75vmin;
     margin: 2em auto;
 }
   
   /* Add or modify the following CSS rules as needed */
   textarea[type="text"] {
-    height: 62px;
+    /* height: 62px; */
     font-size: 18px;
     padding: 10px;
-    width: 800px;
+    width: 100%;
     resize: none; /* Disable resizing */
     text-align: left; /* Left text */
     margin: 0 10px; /* Add margin to the edges */
@@ -140,19 +144,11 @@ ul {
     border-radius: 15px;
     font-family: "Microsoft YaHei";
 }
-.form-group {
-    position: relative;
-}
 
 #loader{
     justify-content: center;
     align-items: center;
-    
-    position: relative;
     display: none;
-    left: 50%;
-    transform: translate(-50%);
-
     margin-top: 20px;
 
 }

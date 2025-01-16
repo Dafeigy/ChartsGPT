@@ -32,6 +32,7 @@ class GPTBot:
             "model": self.model,
             "messages": self.messages,
             "temperature": 0.4,
+            'response_format': {"type": "json_object"},
             "top_p": 0.7
             }
 

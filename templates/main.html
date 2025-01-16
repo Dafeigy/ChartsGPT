@@ -3,18 +3,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChartGPT📈</title>
+    <title>📈EChartsBot</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = 'img/logo.ico') }}"> 
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}", type="text/css">
     <script type="text/javascript" src="{{ url_for('static', filename = 'js/jquery-1.11.1.min.js')}}"> </script>
 </head>
 <body>
     <div class="container">
-        <h1>ChartGPT📈</h1>
+        <h1>📈EChartsBot</h1>
         
         <form id = "chart-form">
                 <div class="form-group">
-                    <textarea type="text" id="user-input" name="user-input" rows="2" cols="200" placeholder="Describe charts in natural languages:"  required></textarea>
+                    <textarea type="text" id="user-input" name="user-input" placeholder="Describe charts in natural languages and click generate to generate it:"  required></textarea>
                 </div>
         </form>
         <div class="generate">
@@ -34,11 +34,11 @@
         </div>
         <div class="top">
             <div id="Note">
-                <div id="example">提供一些参考的样例：</div>
+                <div id="example">Here are some examples for your reference</div>
                 <ul>
-                    <li>创建一个折线图，横坐标['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']，纵坐标 [150, 230, 224, 218, 135, 147, 260]</li>
-                    <li>创建一个雷达图，数据 为[4200, 3000, 20000, 35000, 50000, 18000]，分别对应[Sales，Administration，Information Technology，Customer Support，Development,Marketing] 这几项内容</li>
-                    <li>创建一个K线图，横坐标 ['2017-10-24', '2017-10-25', '2017-10-26', '2017-10-27']，纵坐标[[20, 34, 10, 38],[40, 35, 30, 50],[31, 38, 33, 44],[38, 15, 5, 42]]</li>
+                    <li>Make a line chart, with X-axis data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], Y-axis data: [150, 230, 224, 218, 135, 147, 260]</li>
+                    <li>Make a radar chart, with data [4200, 3000, 20000, 35000, 50000, 18000], corresponding to [Sales, Administration, Information Technology，Customer Support，Development,Marketing]</li>
+                    <li>Make a K-line chart, X-axis data is ['2017-10-24', '2017-10-25', '2017-10-26', '2017-10-27'], Y-axis data is [[20, 34, 10, 38],[40, 35, 30, 50],[31, 38, 33, 44],[38, 15, 5, 42]]</li>
                 </ul>
             </div>
         </div>
